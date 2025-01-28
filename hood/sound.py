@@ -14,7 +14,7 @@ class Encoder:
         
         sample = sample.set_frame_rate(self.sample_rate)
         
-        sample = sample[:int(self.duration * 1000)].get_array_of_samples()
+        sample = list(sample[:int(self.duration * 1000)].get_array_of_samples())
         
         sample = [impulse / 32768.0 for impulse in samples]
         
