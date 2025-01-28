@@ -10,7 +10,7 @@ if __name__ == "__main__":
     
     #
     
-    buffer_size = 100
+    buffer_size = 30
     
     #
     
