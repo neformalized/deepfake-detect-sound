@@ -21,7 +21,7 @@ def create(input_shape, output_shape):
     model.add(MaxPooling1D(pool_size=(2)))
     
     model.add(Flatten())
-    model.add(Dense(128, activation='relu'))
+    model.add(Dense(128, activation='tanh'))
     
     model.add(Dense(output_shape, activation='sigmoid'))
     
