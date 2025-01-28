@@ -16,7 +16,7 @@ class Encoder:
         
         sample = list(sample[:int(self.duration * 1000)].get_array_of_samples())
         
-        sample = [impulse / 32768.0 for impulse in samples]
+        sample = [impulse / 32768.0 for impulse in sample]
         
         while len(sample) < int(self.duration * self.sample_rate):
             
