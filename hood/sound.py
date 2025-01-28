@@ -12,12 +12,23 @@ class Encoder:
         
         sample = AudioSegment.from_wav(sound_path)
         
+        sample = sample.set_frame_rate(self.sample_rate)
         
-        image = cv2.imread(image_path)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image = cv2.resize(image, (self.target_size[1], self.target_size[0]))
-        image = image/255
+        sample = sample[:int(self.duration * 1000)].get_array_of_samples()
         
-        return image
+        #
+        
+        sample = [impulse / 32768.0 for impulse in samples]
+        
+        #
+        
+        while len(sample) < int(self.duration * self.sample_rate):
+            
+            sample.append(0.0)
+        #
+        
+        #
+        
+        return sample[:int(self.duration * self.sample_rate)]
     #
 #
