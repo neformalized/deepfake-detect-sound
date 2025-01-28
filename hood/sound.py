@@ -10,9 +10,9 @@ class Encoder:
     
     def process(self, sound_path):
         
-        sample = AudioSegment.from_wav(sound_path)
+        sample = AudioSegment.from_file(sound_path)
         
-        sample = sample.set_frame_rate(self.sample_rate)
+        sample = sample.set_frame_rate(self.sample_rate).set_channels(1).set_sample_width(2)
         
         sample = list(sample[:int(self.duration * 1000)].get_array_of_samples())
         
