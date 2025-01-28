@@ -10,7 +10,7 @@ class Dual:
     
     def put(self, index, x, y):
         
-        self.x[index,:,:] = x
+        self.x[index,:,:] = numpy.expand_dims(x, axis = -1)
         self.y[index,:] = y
     #
     
